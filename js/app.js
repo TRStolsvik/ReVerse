@@ -1,4 +1,5 @@
-// Call Hello World!
-function HelloWorld() {
-  alert('Hello World!');
-}
+(function (app) {
+  app.reVerse = function () {
+    //Code here
+  };
+})((window.app = window.app || {}));
