@@ -1,4 +1,6 @@
 (function (app) {
+  'use strict';
+
   app.reVerse = function () {
     const submitButton = document.getElementById('btnSubmit');
     submitButton.addEventListener('click', captureString);
