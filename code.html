@@ -88,7 +88,7 @@
     <main class="flex-shrink-0">
       <div class="container">
         <h2 class="border-1 border-bottom border-dark">
-          The Code for Re-Verse is structured in XX functions.
+          The Code for Re-Verse is structured in 3 functions.
         </h2>
         <div id="accordionItemOne" class="accordion mt-2">
           <div class="accordion-item bg-secondary-subtle">
@@ -101,7 +101,7 @@
                 aria-controls="accordionPanelOne"
                 class="accordion-button bg-dark text-light"
               >
-                Function Name #1
+                captureString()
               </button>
             </h3>
             <div
@@ -112,17 +112,35 @@
                 <div class="row row-cols-1 row-cols-md-2">
                   <div class="col col-md-8">
                     <pre data-start="1"><code class="language-javascript">
-                            // Call Hello World!
-                            function HelloWorld() {
-                                alert('Hello World!');
-                            }                                            
+                      function captureString() {
+                        // Capture and store user string
+                        const userString = document.getElementById('inputString').value;
+                        document.getElementById('inputString').value = '';
+                    
+                        const revString = reverseString(userString);
+                    
+                        displayString(revString);
+                      }                                           
                         </code></pre>
                   </div>
                   <div class="col col-md-4">
-                    <h5>HelloWorld()</h5>
+                    <h5>captureString()</h5>
                     <p>
-                      Hello World is a function that displays an alert with a
-                      message of "Hello World!"
+                      The function captureString() captures the input from the
+                      user and stores it in a variable called userString. In
+                      order to make the input ready for the next string, we will
+                      clear the input field as well, so we insert an empty
+                      string.
+                    </p>
+                    <p>
+                      Next we call the function reverseString() with the
+                      variable userString as a parameter, and store it's
+                      returned value in a new variable called revString.
+                    </p>
+                    <p>
+                      Finally we'll call the function displayString() with the
+                      variable revString as a parameter so that we can display
+                      the newly reversed string on the page.
                     </p>
                   </div>
                 </div>
@@ -141,7 +159,7 @@
                 aria-controls="accordionPanelTwo"
                 class="accordion-button bg-dark text-light"
               >
-                Function Name #2
+                reverseString()
               </button>
             </h3>
             <div id="accordionPanelTwo" class="accordion-collapse collapse">
@@ -149,17 +167,89 @@
                 <div class="row row-cols-1 row-cols-md-2">
                   <div class="col col-md-8">
                     <pre data-start="5"><code class="language-javascript">
-                            // Call Hello World!
-                            function HelloWorld() {
-                                alert('Hello World!');
-                            }                                            
+                      function reverseString(userString) {
+                        let revString = '';
+                    
+                        for (let i = userString.length - 1; i >= 0; i--) {
+                          revString += userString[i];
+                        }
+                    
+                        return revString;
+                      }                                            
                         </code></pre>
                   </div>
                   <div class="col col-md-4">
-                    <h5>HelloWorld()</h5>
+                    <h5>reverseString()</h5>
                     <p>
-                      Hello World is a function that displays an alert with a
-                      message of "Hello World!"
+                      The function reverseString() takes in the userString from
+                      the previous function as a parameter.
+                    </p>
+                    <p>
+                      Next we declare an empty string called revString, where we
+                      will store our reversed string.
+                    </p>
+                    <p>
+                      To reverse the string, we will run it through a for-loop
+                      where we iterate (i) through the length of the userString,
+                      minus 1. This is because we start at 0 when counting, not
+                      at 1. The loop will continue for as long as i is greater
+                      than or equal to 0, and we will iterate in reverse (--)
+                      until we're done.
+                    </p>
+                    <p>
+                      Each time we iterate, we will concatenate (+=) the value
+                      (character) that is occupying the current index (i) of
+                      userString. Since we are doing this in reverse order, we
+                      will now eventually have a reversed string stored in the
+                      revString variable.
+                    </p>
+                    <p>
+                      Finally, we return revString. <strong>Note</strong> that
+                      we do this outside the for-loop, after it is done
+                      iterating.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="accordionItemThree" class="accordion mt-1">
+          <div class="accordion-item bg-secondary-subtle">
+            <h3 class="accordion-header">
+              <button
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#accordionPanelThree"
+                aria-expanded="true"
+                aria-controls="accordionPanelThree"
+                class="accordion-button bg-dark text-light"
+              >
+                displayString()
+              </button>
+            </h3>
+            <div id="accordionPanelThree" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-2">
+                  <div class="col col-md-8">
+                    <pre data-start="5"><code class="language-javascript">
+                      function displayString(revString) {
+                        document.getElementById('results').innerHTML = revString;
+                      }                                           
+                        </code></pre>
+                  </div>
+                  <div class="col col-md-4">
+                    <h5>displayString()</h5>
+                    <p>
+                      The function displayString() takes in the revString
+                      variable we returned in the previous function as a
+                      parameter, and it only has one job.
+                    </p>
+                    <p>
+                      We store the contents of the revString variable inside the
+                      HTML of the results ID on the page. This way, the reversed
+                      string will now display in the paragraph that contains
+                      this ID.
                     </p>
                   </div>
                 </div>
