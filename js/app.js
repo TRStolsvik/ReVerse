@@ -8,6 +8,7 @@
   function captureString() {
     // Capture and store user string
     const userString = document.getElementById('inputString').value;
+    document.getElementById('inputString').value = '';
 
     const revString = reverseString(userString);
 
